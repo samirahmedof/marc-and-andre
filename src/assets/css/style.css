@@ -352,6 +352,10 @@ footer .footerMenu ul li a {
 
 .userList .tableFilter {
   position: relative;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  min-width: 100%;
 }
 
 .userList .tableFilter .search i {
@@ -436,7 +440,9 @@ footer .footerMenu ul li a {
 }
 
 .userList table .userStatus {
-  width: 80px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
 }
 
 .userList table .userStatus select {

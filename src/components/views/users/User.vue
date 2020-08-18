@@ -26,7 +26,9 @@
     <td>{{user.manager}}</td>
     <td>{{user.activate}}</td>
     <td>
-      <i class="fas fa-edit"></i>
+      <div class="editUser text-center">
+        <i class="fas fa-edit"></i>
+      </div>
     </td>
     <td>{{user.type}}</td>
   </tr>

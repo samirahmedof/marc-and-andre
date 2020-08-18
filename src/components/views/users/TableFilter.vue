@@ -1,7 +1,8 @@
 <template>
   <th>
     <div class="tableFilter d-flex align-items-center">
-      <select class="form-control">
+      <select class="form-control" v-model="selectedFilter">
+        <option value="0" disabled>Select</option>
         <option value="1">asc</option>
         <option value="2">desc</option>
       </select>
@@ -14,8 +15,8 @@
         mode="out-in"
       >
         <div class="searchInput" v-if="thead.hasSearch" v-show="showSearch">
-          <input type="text" class="form-control" />
-          <i class="fas fa-times" @click="showSearch=false"></i>
+          <input type="text" class="form-control" v-model="search" />
+          <i class="fas fa-times" @click="clearSearch"></i>
         </div>
       </transition>
     </div>
@@ -23,11 +24,34 @@
 </template>
 <script>
 export default {
-  props: ["thead"],
+  props: ["thead", "index", "filteredIndex"],
   data() {
     return {
       showSearch: false,
+      selectedFilter: "0",
+      search: "",
     };
+  },
+  methods: {
+    clearSearch() {
+      this.showSearch = false;
+      this.search = "";
+    },
+  },
+  watch: {
+    selectedFilter(val) {
+      if (val != 0) {
+        this.$emit("filtered", { index: this.index, value: val });
+      }
+    },
+    filteredIndex(val) {
+      if (val != this.index) {
+        this.selectedFilter = "0";
+      }
+    },
+    search(val) {
+      this.$emit("searched", { index: this.index, value: val });
+    },
   },
 };
 </script>

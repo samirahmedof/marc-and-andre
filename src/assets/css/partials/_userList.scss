@@ -1,6 +1,8 @@
 .userList {
     .tableFilter {
         position: relative;
+        width: max-content;
+        min-width: 100%;
         .search {
             i {
                 cursor: pointer;
@@ -68,7 +70,7 @@
             }
         }
         .userStatus {
-            width: 80px;
+            width: max-content;
             select {
                 font-size: 13px;
             }
