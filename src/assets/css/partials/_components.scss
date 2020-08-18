@@ -1,0 +1,68 @@
+.btn:focus {
+    box-shadow: none;
+}
+.btn-input {
+    background-color: $color;
+    color: white;
+    &:hover {
+        color: white;
+        background-color: darken($color, 10);
+    }
+}
+.btn-pr {
+    display: inline-block;
+    padding: 12px;
+    border: 1px solid $color;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    color: $color;
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+    &:hover {
+        border-color: $light;
+        color: $light;
+    }
+}
+.btn-sm {
+    padding: 2px 10px;
+}
+.form-control {
+    transition: all 0.3s;
+    &:focus {
+        outline: none;
+        box-shadow: 0px 0px 3px 1px $color;
+        border-color: $color;
+    }
+}
+small.formAlert {
+    color: $red;
+}
+.btn:disabled {
+    pointer-events: none;
+    color: #c5c5c5;
+    border-color: #c5c5c5;
+}
+.pagination .page-link {
+    color: $color;
+    transition: all 0.3s;
+}
+
+.pagination .page-link:focus,
+.pagination .page-link:hover {
+    box-shadow: none;
+    color: $color;
+    background-color: #e9ecef;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: $color;
+    border-color: $color;
+}
+.headerTitle {
+    text-align: center;
+    color: $color;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+}
