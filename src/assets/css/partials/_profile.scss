@@ -1,0 +1,13 @@
+.userProfile {
+    .about {
+        border: 1px solid $color;
+        box-shadow: $shadow;
+        padding: 25px;
+        table {
+            td {
+                border: none;
+                border-bottom: 1px solid #dac7a8;
+            }
+        }
+    }
+}

@@ -3,6 +3,9 @@ import VueRouter from "vue-router";
 import Login from './../../components/views/auth/Login';
 import Restore from './../../components/views/auth/Restore';
 import Users from './../../components/views/users/Users';
+import Profile from './../../components/views/profile/Profile';
+import QuickRegistration from './../../components/views/quick-registration/QuickRegistration';
+
 Vue.use(VueRouter);
 
 export const router = new VueRouter({
@@ -10,6 +13,8 @@ export const router = new VueRouter({
         { path: '/', component: Users },
         { path: '/login', component: Login },
         { path: '/restore', component: Restore },
+        { path: '/profile', component: Profile },
+        { path: '/quick-registration', component: QuickRegistration },
         { path: '*', redirect: '/' }
     ],
     mode: 'history'

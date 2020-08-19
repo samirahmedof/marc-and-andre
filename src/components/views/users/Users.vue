@@ -50,7 +50,7 @@ import Pagination from "./../../shared/Pagination";
 export default {
   data() {
     return {
-      Page: "List of users",
+      Page: "User List",
       tableHead: [
         {
           id: "1",

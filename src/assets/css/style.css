@@ -9,6 +9,8 @@ a:hover {
 
 ul {
   list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
 .form-control.invalid {
@@ -127,34 +129,34 @@ small.formAlert {
   margin-bottom: 50px;
 }
 
-header {
+header .mainHeader {
   background: #fafafa;
   padding: 12px 15px;
   border-bottom: 1px solid #c3a471;
   height: 106px;
 }
 
-header .logo img {
+header .mainHeader .logo img {
   max-width: 100%;
 }
 
-header .searching .input-group .input-group-append span {
+header .mainHeader .searching .input-group .input-group-append span {
   padding: 0;
   overflow: hidden;
 }
 
-header .searching .input-group .input-group-append span button {
+header .mainHeader .searching .input-group .input-group-append span button {
   padding: 0 10px;
   height: 100%;
   width: 100%;
   border-radius: 0;
 }
 
-header .cart .icon {
+header .mainHeader .cart .icon {
   margin-bottom: 7px;
 }
 
-header .cart .icon a {
+header .mainHeader .cart .icon a {
   color: #c3a471;
   display: inline-block;
   padding: 5px 20px;
@@ -162,33 +164,33 @@ header .cart .icon a {
   border-radius: 5px;
 }
 
-header .cart .icon a i {
+header .mainHeader .cart .icon a i {
   font-size: 30px;
 }
 
-header .cart p {
+header .mainHeader .cart p {
   margin: 0;
   font-size: 12px;
   line-height: 15px;
 }
 
-header .user .profile {
+header .mainHeader .user .profile {
   width: 50px;
   margin: 0 auto;
   position: relative;
   cursor: pointer;
 }
 
-header .user .profile:hover .userPopup {
+header .mainHeader .user .profile:hover .userPopup {
   opacity: 1;
   visibility: visible;
 }
 
-header .user img {
+header .mainHeader .user img {
   max-width: 100%;
 }
 
-header .user .userPopup {
+header .mainHeader .user .userPopup {
   position: absolute;
   background: white;
   padding: 5px;
@@ -203,12 +205,12 @@ header .user .userPopup {
   transition: all 0.3s;
 }
 
-header .user .userPopup ul {
+header .mainHeader .user .userPopup ul {
   padding: 0;
   margin: 0;
 }
 
-header .user .userPopup ul li a {
+header .mainHeader .user .userPopup ul li a {
   display: inline-block;
   width: 100%;
   text-align: center;
@@ -218,8 +220,35 @@ header .user .userPopup ul li a {
   border-radius: 5px;
 }
 
-header .user .userPopup ul li a:hover {
+header .mainHeader .user .userPopup ul li a:hover {
   background: #efefef;
+}
+
+header .secHeader {
+  background: white;
+  padding: 10px 10px;
+  -webkit-box-shadow: 1px 1px 5px 0px #e0e0e0;
+          box-shadow: 1px 1px 5px 0px #e0e0e0;
+}
+
+header .secHeader ul li {
+  display: inline-block;
+  margin: 0 10px;
+}
+
+header .secHeader ul li a {
+  color: gray;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+header .secHeader ul li a:hover {
+  color: #c3a471;
+}
+
+header .secHeader ul li a.router-link-active {
+  color: #c3a471;
+  pointer-events: none;
 }
 
 footer {
@@ -228,11 +257,6 @@ footer {
   padding: 12px 15px;
   border-top: 1px solid #c3a471;
   height: 97px;
-}
-
-footer .footerMenu ul {
-  padding: 0;
-  margin: 0;
 }
 
 footer .footerMenu ul li a {
@@ -447,5 +471,17 @@ footer .footerMenu ul li a {
 
 .userList table .userStatus select {
   font-size: 13px;
+}
+
+.userProfile .about {
+  border: 1px solid #c3a471;
+  -webkit-box-shadow: 1px 1px 5px 0px #e0e0e0;
+          box-shadow: 1px 1px 5px 0px #e0e0e0;
+  padding: 25px;
+}
+
+.userProfile .about table td {
+  border: none;
+  border-bottom: 1px solid #dac7a8;
 }
 /*# sourceMappingURL=style.css.map */
