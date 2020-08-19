@@ -1,41 +1,45 @@
 <template>
   <div class="userList">
-    <h4 class="mt-0 headerTitle">{{Page}}</h4>
-    <div class="card">
-      <div class="card-body">
-        <div class="table-rep-plugin">
-          <div class="table-responsive mb-0">
-            <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <TableHead v-for="thead in tableHead" :key="thead.id" :thead="thead" />
-                </tr>
-                <tr>
-                  <TableFilter
-                    v-for="(thead,index) in tableHead"
-                    :key="thead.id"
-                    :thead="thead"
-                    :index="index"
-                    :filteredIndex="filteredIndex"
-                    @filtered="filteredCol($event)"
-                    @searched="searchedCol($event)"
-                  />
-                </tr>
-              </thead>
-              <tbody>
-                <User
-                  v-for="user in showedTableData"
-                  :key="user.id"
-                  :user="user"
-                  @changedStatus="changeStatus($event)"
-                />
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12 mt-5 d-flex justify-content-center">
-            <Pagination :count="pageCount" @changedPage="currentPage=$event" />
+    <div class="r">
+      <div class="col-12">
+        <h4 class="mt-0 headerTitle">{{Page}}</h4>
+        <div class="card">
+          <div class="card-body">
+            <div class="table-rep-plugin">
+              <div class="table-responsive mb-0">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <TableHead v-for="thead in tableHead" :key="thead.id" :thead="thead" />
+                    </tr>
+                    <tr>
+                      <TableFilter
+                        v-for="(thead,index) in tableHead"
+                        :key="thead.id"
+                        :thead="thead"
+                        :index="index"
+                        :filteredIndex="filteredIndex"
+                        @filtered="filteredCol($event)"
+                        @searched="searchedCol($event)"
+                      />
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <User
+                      v-for="user in showedTableData"
+                      :key="user.id"
+                      :user="user"
+                      @changedStatus="changeStatus($event)"
+                    />
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12 mt-5 d-flex justify-content-center">
+                <Pagination :count="pageCount" @changedPage="currentPage=$event" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -44,8 +48,8 @@
 </template>
 <script>
 import User from "./User";
-import TableHead from "./TableHead";
-import TableFilter from "./TableFilter";
+import TableHead from "./../../shared/TableHead";
+import TableFilter from "./../../shared/TableFilter";
 import Pagination from "./../../shared/Pagination";
 export default {
   data() {

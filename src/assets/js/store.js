@@ -4,7 +4,7 @@ Vue.use(Vuex);
 
 export const store = new Vuex.Store({
     state: {
-        isLogged: true
+        isLogged: false
     },
     getters: {
         getIsLogged(state) {

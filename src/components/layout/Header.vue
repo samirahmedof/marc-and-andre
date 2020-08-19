@@ -85,6 +85,12 @@
                 <li>
                   <router-link to="/quick-registration">Quick Registration</router-link>
                 </li>
+                <li>
+                  <router-link to="/exhibition">Exhibition</router-link>
+                </li>
+                <li>
+                  <router-link to="/catalog">Catalog</router-link>
+                </li>
               </ul>
             </div>
           </div>

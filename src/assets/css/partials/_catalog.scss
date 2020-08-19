@@ -1,0 +1,61 @@
+.catalogPage {
+    .tableCol {
+        position: relative;
+    }
+    .totalTable {
+        position: sticky;
+        top: 20px;
+        th,
+        td {
+            text-align: center;
+            width: 40px;
+            font-size: 10px;
+            padding: 5px;
+        }
+    }
+    .catalogCard {
+        box-shadow: $shadow;
+        padding: 12px;
+        .imageContainer {
+            text-align: center;
+            img {
+                max-width: 100%;
+                max-height: 200px;
+            }
+        }
+        .cardName {
+            text-align: center;
+            color: $color;
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        .cardBody {
+            margin-top: 10px;
+            .cardTitle {
+                font-size: 14px;
+            }
+            .cardDescr {
+                font-size: 13px;
+                color: #747474;
+                line-height: 18px;
+                margin-bottom: 5px;
+            }
+            .tableArea {
+                th,
+                td {
+                    font-size: 10px;
+                    padding: 5px;
+                    text-align: center;
+                }
+            }
+            .price {
+                margin-bottom: 10px;
+                span {
+                    font-size: 13px;
+                    font-weight: 500;
+                    color: $color;
+                }
+            }
+        }
+    }
+}

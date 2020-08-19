@@ -106,6 +106,17 @@
                 <input type="checkbox" class="form-check-input" id="tnCheck" v-model="reg.hasTIN" />
                 <label class="form-check-label" for="tnCheck">I have tax number (TIN)</label>
               </div>
+              <transition
+                enter-active-class="animate__animated animate__fadeInDown animate__faster"
+                leave-active-class="animate__animated animate__fadeOutUp animate__faster"
+                mode="out-in"
+              >
+                <div class="form-group" v-if="reg.hasTIN">
+                  <label>TIN</label>
+                  <input type="text" class="form-control" v-model="reg.tin" />
+                </div>
+              </transition>
+
               <div class="form-group">
                 <label>Legal address</label>
                 <input type="text" class="form-control" v-model="reg.address" />
@@ -126,7 +137,10 @@
               </div>
               <div class="form-group">
                 <label>Phone</label>
-                <input type="text" class="form-control" v-model="reg.phone" />
+                <div class="input-group">
+                  <input type="text" class="form-control" v-model="region" disabled />
+                  <input type="text" class="form-control" style="width: 60%" v-model="reg.phone" />
+                </div>
                 <small class="form-text formAlert" v-if="$v.reg.phone.$invalid&&showAlerts">
                   <span v-if="!$v.reg.phone.required">This field is required</span>
                   <span v-else>Invalid phone</span>
@@ -168,7 +182,7 @@
                   mode="out-in"
                 >
                   <div class="input-group mb-2" v-for="input in addressInputs" :key="input.id">
-                    <input type="text" class="form-control" :value="input.id" />
+                    <input type="text" class="form-control" />
                     <div class="input-group-append">
                       <span class="input-group-text" @click="removeInput(input.id)">
                         <i class="fas fa-times"></i>
@@ -191,10 +205,13 @@
                   id="termsCheck"
                   v-model="reg.acceptRules"
                 />
-                <label
-                  class="form-check-label"
-                  for="termsCheck"
-                >I agree with the rules for processing personal data</label>
+                <label class="form-check-label" for="termsCheck">
+                  <a
+                    href="#"
+                    title="I agree with the rules for processing personal data"
+                    @click.prevent
+                  >I agree with the rules for processing personal data</a>
+                </label>
               </div>
             </div>
             <div class="col-12">
@@ -288,12 +305,14 @@ export default {
         email: null,
         pass: null,
       },
+      region: "+994",
       reg: {
         email: null,
         pass1: null,
         pass2: null,
         org: null,
-        hasTIN: true,
+        hasTIN: false,
+        tin: null,
         address: null,
         activeAddress: null,
         fullname: null,
@@ -362,7 +381,7 @@ export default {
         this.invalidLogin = true;
       } else {
         this.correctEmail = false;
-        this.$store.commit('changeLogged');
+        this.$store.commit("changeLogged");
         this.$router.push("/");
       }
     },
@@ -370,7 +389,7 @@ export default {
       this.incorrectEmailForForgotPass = true;
     },
     addNewInput() {
-      if (this.addressInputs.length < 5) {
+      if (this.addressInputs.length < 4) {
         if (this.addressInputs.length) {
           var newInput = {
             id: this.addressInputs[this.addressInputs.length - 1].id + 1,

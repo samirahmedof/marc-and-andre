@@ -1,5 +1,5 @@
 <template>
-  <th>
+  <th :class="thead.obj">
     <div class="tableFilter d-flex align-items-center">
       <select class="form-control" v-model="selectedFilter">
         <option value="0" disabled>Select</option>

@@ -1,51 +1,6 @@
 .userList {
-    .tableFilter {
-        position: relative;
-        width: max-content;
-        min-width: 100%;
-        .search {
-            i {
-                cursor: pointer;
-                color: $color;
-            }
-        }
-        .searchInput {
-            position: absolute;
-            width: 100%;
-            input {
-                padding-right: 20px;
-            }
-            i {
-                color: $color;
-                position: absolute;
-                top: 1px;
-                right: 1px;
-                background: #f2f2f2;
-                width: 20px;
-                height: 96%;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                opacity: 0.5;
-                transition: all 0.3s;
-                cursor: pointer;
-                &:hover {
-                    opacity: 1;
-                }
-            }
-        }
-    }
     table {
         tr {
-            vertical-align: middle;
-            transition: all 0.5s;
-            td {
-                i {
-                    color: $color;
-                    font-size: 18px;
-                    cursor: pointer;
-                }
-            }
             &.isNotActive {
                 background: $red;
                 color: white;
