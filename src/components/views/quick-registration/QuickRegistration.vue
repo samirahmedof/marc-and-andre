@@ -73,8 +73,7 @@
         </div>
       </form>
     </div>
-    <b-modal id="regModal" size="sm" hide-header hide-footer>
-      <p class="my-4">Select one of this</p>
+    <b-modal id="regModal" size="sm" hide-header hide-footer centered>
       <div class="buttons">
         <button class="btn btn-pr">Select1</button>
         <button class="btn btn-pr">Select2</button>

@@ -15,27 +15,27 @@
               <tbody>
                 <tr>
                   <td>Fullname</td>
-                  <td>Name Surname</td>
+                  <td>"Name Surname"</td>
                 </tr>
                 <tr>
                   <td>Country</td>
-                  <td>Azerbaijan</td>
+                  <td>"Azerbaijan"</td>
                 </tr>
                 <tr>
                   <td>City</td>
-                  <td>Baku</td>
+                  <td>"Baku"</td>
                 </tr>
                 <tr>
                   <td>Email</td>
-                  <td>a@mail.ru</td>
+                  <td>"a@mail.ru"</td>
                 </tr>
                 <tr>
                   <td>Phone</td>
-                  <td>+994 55 987 65 43</td>
+                  <td>"+994 55 987 65 43"</td>
                 </tr>
                 <tr>
                   <td>Sales manager</td>
-                  <td>Name Surname</td>
+                  <td>"Name Surname"</td>
                 </tr>
               </tbody>
             </table>

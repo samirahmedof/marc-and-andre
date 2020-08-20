@@ -580,4 +580,35 @@ footer .footerMenu ul li a {
   font-weight: 500;
   color: #c3a471;
 }
+
+#regModal .buttons .btn {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.ordersPage table thead th:first-of-type {
+  width: 50px;
+}
+
+.ordersPage table thead th:last-of-type {
+  width: 120px;
+}
+
+.ordersPage table tbody tr td {
+  text-align: center;
+}
+
+#orderModal .buttons .btn {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.visualCatalogPage .imageContainer img {
+  max-width: 100%;
+}
+
+.shippingAndPayment .imgContainer img,
+.aboutPage .imgContainer img {
+  max-width: 100%;
+}
 /*# sourceMappingURL=style.css.map */

@@ -27,7 +27,9 @@
     <td>{{user.activate}}</td>
     <td>
       <div class="editUser text-center">
-        <i class="fas fa-edit"></i>
+        <router-link :to="userlink">
+          <i class="fas fa-edit"></i>
+        </router-link>
       </div>
     </td>
     <td>{{user.type}}</td>
@@ -35,7 +37,7 @@
 </template>
 <script>
 export default {
-  props: ["user"],
+  props: ["user", "index"],
   data() {
     return {
       status: this.user.status,
@@ -44,6 +46,11 @@ export default {
   methods: {
     acceptStatus() {
       this.$emit("changedStatus", { id: this.user.id, status: this.status });
+    },
+  },
+  computed: {
+    userlink() {
+      return `/users/${this.index + 1}`;
     },
   },
 };

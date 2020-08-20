@@ -12,10 +12,10 @@
                 <a href="#" title="Personal Data Processing Rules">Personal Data Processing Rules</a>
               </li>
               <li v-if="$store.getters.getIsLogged">
-                <a href="#" title="Delivery and payment">Delivery and payment</a>
+                <router-link to="/shipping-and-payment">Shipping and payment</router-link>
               </li>
               <li v-if="$store.getters.getIsLogged">
-                <a href="#" title="About">About</a>
+                <router-link to="/about">About</router-link>
               </li>
             </ul>
           </div>

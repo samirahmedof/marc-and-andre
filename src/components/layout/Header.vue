@@ -80,7 +80,7 @@
             <div class="col-12">
               <ul>
                 <li>
-                  <router-link to="/" exact>User List</router-link>
+                  <router-link to="/users" exact>User List</router-link>
                 </li>
                 <li>
                   <router-link to="/quick-registration">Quick Registration</router-link>
@@ -91,6 +91,12 @@
                 <li>
                   <router-link to="/catalog">Catalog</router-link>
                 </li>
+                <li>
+                  <router-link to="/orders">Orders</router-link>
+                </li>
+                <!-- <li>
+                  <router-link to="/visual-catalog">VisualCatalog</router-link>
+                </li> -->
               </ul>
             </div>
           </div>

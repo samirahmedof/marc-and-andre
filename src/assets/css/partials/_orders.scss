@@ -1,0 +1,27 @@
+.ordersPage {
+    table {
+        thead {
+            th:first-of-type {
+                width: 50px;
+            }
+            th:last-of-type {
+                width: 120px;
+            }
+        }
+        tbody {
+            tr {
+                td {
+                    text-align: center;
+                }
+            }
+        }
+    }
+}
+#orderModal {
+    .buttons {
+        .btn {
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+}

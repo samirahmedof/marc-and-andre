@@ -26,9 +26,10 @@
                   </thead>
                   <tbody>
                     <User
-                      v-for="user in showedTableData"
+                      v-for="(user,index) in showedTableData"
                       :key="user.id"
                       :user="user"
+                      :index="index"
                       @changedStatus="changeStatus($event)"
                     />
                   </tbody>
