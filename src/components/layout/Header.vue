@@ -39,9 +39,9 @@
                 <div class="col-6">
                   <div class="cart text-center">
                     <div class="icon">
-                      <a href="#" title="cart">
+                      <router-link to="/order-details">
                         <i class="fas fa-shopping-cart"></i>
-                      </a>
+                      </router-link>
                     </div>
                     <p>Sum 13$</p>
                     <p>Total 20</p>
@@ -96,7 +96,7 @@
                 </li>
                 <!-- <li>
                   <router-link to="/visual-catalog">VisualCatalog</router-link>
-                </li> -->
+                </li>-->
               </ul>
             </div>
           </div>

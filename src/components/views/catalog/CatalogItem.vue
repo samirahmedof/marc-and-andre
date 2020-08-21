@@ -61,7 +61,7 @@
           </table>
         </div>
         <div class="btnRow text-center">
-          <a href="#" class="btn btn-pr btn-sm">More</a>
+          <router-link :to="moreLink" class="btn btn-pr btn-sm">More</router-link>
         </div>
       </div>
     </div>
@@ -69,6 +69,11 @@
 </template>
 <script>
 export default {
-  props: ["item"],
+  props: ["item", "index"],
+  computed: {
+    moreLink() {
+      return `catalog/${this.index + 1}`;
+    },
+  },
 };
 </script>

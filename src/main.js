@@ -11,7 +11,6 @@ import { store } from './assets/js/store';
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
 
-
 router.beforeEach((to, from, next) => {
   if (to.path == '/login') {
     if (store.getters.getIsLogged) {

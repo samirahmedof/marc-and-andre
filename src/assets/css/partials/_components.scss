@@ -115,3 +115,50 @@ table {
         }
     }
 }
+.productCarousel {
+    .mainImage {
+        height: 300px;
+        border: 1px solid $color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 5px 10px;
+        img {
+            max-width: 100%;
+            max-height: 290px;
+        }
+    }
+
+    .imgContainer {
+        padding: 2px;
+        border: 1px solid #b7b6b6;
+        opacity: 0.3;
+        cursor: pointer;
+        transition: all 0.3s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100px;
+        img {
+            max-width: 100%;
+            max-height: 100px;
+        }
+        &.active {
+            pointer-events: none;
+            border-color: $color;
+            opacity: 1;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .navRow {
+        overflow: hidden;
+        .slide {
+            transition: all 0.3s;
+            & > .row {
+                flex-wrap: nowrap;
+            }
+        }
+    }
+}

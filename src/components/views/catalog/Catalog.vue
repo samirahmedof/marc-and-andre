@@ -6,7 +6,12 @@
         <div class="row">
           <div class="col-md-9">
             <div class="row">
-              <CatalogItem v-for="item in showedTableData" :key="item.id" :item="item" />
+              <CatalogItem
+                v-for="(item,index) in showedTableData"
+                :key="item.id"
+                :item="item"
+                :index="index"
+              />
             </div>
           </div>
           <div class="col-md-3 tableCol">

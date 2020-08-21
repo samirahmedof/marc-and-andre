@@ -75,9 +75,9 @@
     </div>
     <b-modal id="regModal" size="sm" hide-header hide-footer centered>
       <div class="buttons">
-        <button class="btn btn-pr">Select1</button>
-        <button class="btn btn-pr">Select2</button>
-        <button class="btn btn-pr">Select3</button>
+        <button class="btn btn-pr" @click="selectedBtn">Select1</button>
+        <button class="btn btn-pr" @click="selectedBtn">Select2</button>
+        <button class="btn btn-pr" @click="selectedBtn">Select3</button>
       </div>
     </b-modal>
   </div>
@@ -139,6 +139,9 @@ export default {
       } else {
         this.$bvModal.show("regModal");
       }
+    },
+    selectedBtn() {
+      this.$router.push("/catalog");
     },
   },
 };

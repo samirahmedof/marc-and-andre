@@ -101,10 +101,10 @@
             </table>
             <div class="changePassBtn text-center">
               <button class="btn btn-pr">Save</button>
-              <button class="btn btn-pr" @click="changePassword=true">Change password</button>
+              <!-- <button class="btn btn-pr" @click="changePassword=true">Change password</button> -->
             </div>
           </div>
-          <div class="changePassword" v-else key="pass">
+          <!-- <div class="changePassword" v-else key="pass">
             <div class="restoreForm">
               <form @submit.prevent="submitPassword">
                 <div class="form-group">
@@ -142,14 +142,14 @@
                 </div>
               </form>
             </div>
-          </div>
+          </div> -->
         </transition>
       </div>
     </div>
   </div>
 </template>
 <script>
-import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
+// import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
 import Shipping from "./Shipping";
 export default {
   data() {
@@ -242,32 +242,32 @@ export default {
       currentUser: this.$route.params.id,
     };
   },
-  validations: {
-    restore: {
-      email: {
-        required,
-        email,
-      },
-      pass1: {
-        required,
-        minLength: minLength(3),
-      },
-      pass2: {
-        required,
-        minLength: minLength(3),
-        sameAs: sameAs("pass1"),
-      },
-    },
-  },
-  methods: {
-    submitPassword() {
-      if (this.$v.$invalid) {
-        this.showAlerts = true;
-      } else {
-        this.changePassword = false;
-      }
-    },
-  },
+  // validations: {
+  //   restore: {
+  //     email: {
+  //       required,
+  //       email,
+  //     },
+  //     pass1: {
+  //       required,
+  //       minLength: minLength(3),
+  //     },
+  //     pass2: {
+  //       required,
+  //       minLength: minLength(3),
+  //       sameAs: sameAs("pass1"),
+  //     },
+  //   },
+  // },
+  // methods: {
+  //   submitPassword() {
+  //     if (this.$v.$invalid) {
+  //       this.showAlerts = true;
+  //     } else {
+  //       this.changePassword = false;
+  //     }
+  //   },
+  // },
   components: {
     Shipping,
   },

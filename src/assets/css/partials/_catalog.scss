@@ -59,3 +59,35 @@
         }
     }
 }
+.productDetail {
+    .productContent {
+        padding: 15px;
+        box-shadow: $shadow;
+    }
+    .productName {
+        h5 {
+            text-align: center;
+            color: $color;
+            text-transform: uppercase;
+        }
+    }
+    .productPrice {
+        margin-bottom: 10px;
+        .price {
+            color: $color;
+        }
+    }
+    .productDescr {
+        p {
+            color: #747474;
+        }
+    }
+    .productTable {
+        table {
+            th,td {
+                text-align: center;
+                padding: 5px;
+            }
+        }
+    }
+}
