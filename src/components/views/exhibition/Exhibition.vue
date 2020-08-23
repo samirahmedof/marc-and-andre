@@ -9,7 +9,7 @@
               <router-link class="btn btn-pr" to="/catalog">Go to catalog</router-link>
             </div>
             <div class="col-6 text-right">
-              <button class="btn btn-pr">Unload</button>
+              <button class="btn btn-pr">Download</button>
               <button class="btn btn-pr" v-b-modal.sendTableModal>Send</button>
             </div>
           </div>
@@ -30,6 +30,7 @@
                         :thead="thead"
                         :index="index"
                         :filteredIndex="filteredIndex"
+                        :searchedIndex="searchedIndex"
                         @filtered="filteredCol($event)"
                         @searched="searchedCol($event)"
                       />
@@ -137,6 +138,9 @@ export default {
       currentPage: 1,
       showedTableData: [],
       tableData: [],
+      searchedText: null,
+      searchedHeading: null,
+      searchedIndex: null,
     };
   },
   methods: {
@@ -169,11 +173,9 @@ export default {
       }
     },
     searchedCol(e) {
-      if (e.index == 0) {
-        this.date1 = e.value;
-      } else if (e.index == 13) {
-        this.date2 = e.value;
-      }
+      this.searchedIndex = e.index;
+      this.searchedHeading = this.tableHead[e.index].obj;
+      this.searchedText = e.value;
     },
     sendEmail() {
       this.$bvModal.hide("sendTableModal");
@@ -233,6 +235,13 @@ export default {
     },
     pageCount() {
       this.currentPage = 1;
+      this.paginate();
+    },
+    searchedText(val) {
+      this.tableData = this.mainData;
+      this.tableData = this.tableData.filter((x) => {
+        return x[this.searchedHeading].includes(val);
+      });
       this.paginate();
     },
   },

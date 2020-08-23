@@ -1,7 +1,8 @@
 <template>
   <div class="col-4" ref="col">
     <div class="imgContainer" :class="{'active': activeIndex==index}" @click="clickedImage">
-      <img :src="item.src" />
+      <img :src="item.src" v-if="item.type=='img'" />
+      <video v-else :src="item.src"></video>
     </div>
   </div>
 </template>

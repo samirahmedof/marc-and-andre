@@ -5,8 +5,7 @@
         <h4 class="mt-0 headerTitle">{{Page}}</h4>
       </div>
       <div class="col-8">
-        <div class="btnRow mb-3 d-flex justify-content-between">
-          <router-link class="btn btn-pr" to="/exhibition">All orders</router-link>
+        <div class="btnRow mb-3 text-right">
           <button class="btn btn-pr" v-b-modal.orderModal>Add new order</button>
         </div>
         <table class="table table-bordered">

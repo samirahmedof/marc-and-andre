@@ -138,7 +138,7 @@
               <div class="form-group">
                 <label>Phone</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" v-model="region" disabled />
+                  <input type="text" class="form-control" v-model="region" />
                   <input type="text" class="form-control" style="width: 60%" v-model="reg.phone" />
                 </div>
                 <small class="form-text formAlert" v-if="$v.reg.phone.$invalid&&showAlerts">
@@ -423,7 +423,12 @@ export default {
       });
     },
     checkRegistration() {
-      this.showAlerts = true;
+      if (this.$v.reg.$invalid) {
+        this.showAlerts = true;
+      } else {
+        this.showLoginForm = true;
+        this.showForm = false;
+      }
     },
     sendNewPass() {},
   },

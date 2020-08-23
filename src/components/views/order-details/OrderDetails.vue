@@ -9,7 +9,7 @@
               <router-link to="/catalog" class="btn btn-pr">Go to catalog</router-link>
             </div>
             <div class="col-6 text-right">
-              <button class="btn btn-pr">Unload</button>
+              <button class="btn btn-pr">Download</button>
               <button class="btn btn-pr">Checkout</button>
               <button class="btn btn-pr">Save</button>
             </div>
@@ -33,7 +33,7 @@
                     enter-active-class="animate__animated animate__fadeIn animate__faster"
                     leave-active-class="animate__animated animate__fadeOut animate__faster"
                   >
-                    <div class="col-12" v-if="commentShow">
+                    <div class="col-12" v-show="commentShow">
                       <textarea cols="30" rows="3" class="form-control"></textarea>
                     </div>
                   </transition>
@@ -58,6 +58,7 @@
                         :thead="thead"
                         :index="index"
                         :filteredIndex="filteredIndex"
+                        :searchedIndex="searchedIndex"
                         @filtered="filteredCol($event)"
                         @searched="searchedCol($event)"
                       />
@@ -158,6 +159,9 @@ export default {
       tableData: [],
       total: "900",
       commentShow: false,
+      searchedText: null,
+      searchedHeading: null,
+      searchedIndex: null,
     };
   },
   methods: {
@@ -191,11 +195,9 @@ export default {
       }
     },
     searchedCol(e) {
-      if (e.index == 0) {
-        this.date1 = e.value;
-      } else if (e.index == 13) {
-        this.date2 = e.value;
-      }
+      this.searchedIndex = e.index;
+      this.searchedHeading = this.tableHead[e.index].obj;
+      this.searchedText = e.value;
     },
     sendEmail() {
       this.$bvModal.hide("sendTableModal");
@@ -255,6 +257,13 @@ export default {
     },
     pageCount() {
       this.currentPage = 1;
+      this.paginate();
+    },
+    searchedText(val) {
+      this.tableData = this.mainData;
+      this.tableData = this.tableData.filter((x) => {
+        return x[this.searchedHeading].includes(val);
+      });
       this.paginate();
     },
   },

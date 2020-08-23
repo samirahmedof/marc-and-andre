@@ -6,15 +6,15 @@
         <option value="1">asc</option>
         <option value="2">desc</option>
       </select>
-      <div class="search ml-2" v-if="thead.hasSearch">
-        <i class="fas fa-search" @click="showSearch=true"></i>
+      <div class="search ml-2" v-if="thead.obj!='no'&&thead.obj!='color'">
+        <i class="fas fa-search" @click="openSearchInput"></i>
       </div>
       <transition
         enter-active-class="animate__animated animate__fadeIn animate__faster"
         leave-active-class="animate__animated animate__fadeOut animate__faster"
         mode="out-in"
       >
-        <div class="searchInput" v-if="thead.hasSearch" v-show="showSearch">
+        <div class="searchInput" v-show="showSearch">
           <input type="text" class="form-control" v-model="search" />
           <i class="fas fa-times" @click="clearSearch"></i>
         </div>
@@ -24,7 +24,7 @@
 </template>
 <script>
 export default {
-  props: ["thead", "index", "filteredIndex"],
+  props: ["thead", "index", "filteredIndex", "searchedIndex"],
   data() {
     return {
       showSearch: false,
@@ -36,6 +36,10 @@ export default {
     clearSearch() {
       this.showSearch = false;
       this.search = "";
+    },
+    openSearchInput() {
+      this.search = "";
+      this.showSearch = true;
     },
   },
   watch: {
@@ -49,8 +53,15 @@ export default {
         this.selectedFilter = "0";
       }
     },
+
     search(val) {
       this.$emit("searched", { index: this.index, value: val });
+    },
+    searchedIndex(value) {
+      if (value != this.index) {
+        // this.search = "";
+        this.showSearch = false;
+      }
     },
   },
 };

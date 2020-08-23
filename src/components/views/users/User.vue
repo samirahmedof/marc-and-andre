@@ -1,5 +1,8 @@
 <template>
-  <tr :class="[{'isNotActive':user.status=='isNotActive'},{'archive':user.status=='archive'}]">
+  <tr
+    :class="[{'isNotActive':user.status=='isNotActive'},{'archive':user.status=='archive'},{'active':user.status=='active'}]"
+    @click="goToOrders"
+  >
     <td>{{user.regDate}}</td>
     <td>{{user.fullname}}</td>
     <td>{{user.company}}</td>
@@ -46,6 +49,11 @@ export default {
   methods: {
     acceptStatus() {
       this.$emit("changedStatus", { id: this.user.id, status: this.status });
+    },
+    goToOrders() {
+      if (this.user.status == "active") {
+        this.$router.push("/orders");
+      }
     },
   },
   computed: {

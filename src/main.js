@@ -11,24 +11,24 @@ import { store } from './assets/js/store';
 Vue.use(BootstrapVue);
 Vue.use(Vuelidate);
 
-router.beforeEach((to, from, next) => {
-  if (to.path == '/login') {
-    if (store.getters.getIsLogged) {
-      next('/');
-    }
-    else {
-      next();
-    }
-  }
-  else {
-    if (!store.getters.getIsLogged) {
-      next('/login');
-    }
-    else {
-      next();
-    }
-  }
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.path == '/login') {
+//     if (store.getters.getIsLogged) {
+//       next('/');
+//     }
+//     else {
+//       next();
+//     }
+//   }
+//   else {
+//     if (!store.getters.getIsLogged) {
+//       next('/login');
+//     }
+//     else {
+//       next();
+//     }
+//   }
+// })
 
 new Vue({
   el: '#app',

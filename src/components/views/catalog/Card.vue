@@ -18,6 +18,9 @@
               <div class="productDescr">
                 <p>{{ mainData[itemIndex-1].description }}</p>
               </div>
+              <div class="productVAT">
+                <h6>{{ mainData[itemIndex-1].vat }}% VAT included</h6>
+              </div>
               <div class="productPrice">
                 <div class="row">
                   <div class="col-6">
@@ -78,6 +81,7 @@
                 </table>
               </div>
               <div class="btnRow text-center mt-4">
+                <button class="btn btn-pr">Save</button>
                 <router-link to="/catalog" class="btn btn-pr">Back to catalog</router-link>
               </div>
             </div>
@@ -123,7 +127,7 @@ export default {
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
@@ -136,6 +140,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "2",
@@ -145,27 +150,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -173,6 +178,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "3",
@@ -182,27 +188,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -210,6 +216,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "4",
@@ -219,27 +226,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -247,6 +254,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "5",
@@ -256,27 +264,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -284,6 +292,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "6",
@@ -293,27 +302,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -321,6 +330,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "7",
@@ -330,27 +340,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -358,6 +368,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "8",
@@ -367,27 +378,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -395,6 +406,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "9",
@@ -404,27 +416,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -432,6 +444,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
         {
           id: "10",
@@ -441,27 +454,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/150",
+              src: "https://via.placeholder.com/1500",
             },
             {
               id: "i2",
-              type: "img",
-              src: "https://via.placeholder.com/140",
+              type: "video",
+              src: "src/assets/img/video.mp4",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/130",
+              src: "https://via.placeholder.com/1300",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/150x120",
+              src: "https://via.placeholder.com/1500x1200",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/150x130",
+              src: "https://via.placeholder.com/1500x1300",
             },
           ],
           description:
@@ -469,6 +482,7 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          vat: "20",
         },
       ];
       return data;

@@ -1,7 +1,10 @@
 <template>
   <div class="productCarousel">
     <div class="mainImage text-center">
-      <img :src="media[activeIndex].src" />
+      <img :src="media[activeIndex].src" v-if="media[activeIndex].type=='img'" />
+      <video v-else controls>
+        <source :src="media[activeIndex].src" />
+      </video>
     </div>
     <div class="carouselNav d-flex align-items-center mt-3">
       <a href="#" class="btn btn-pr mr-2" @click.prevent="slidePrev">

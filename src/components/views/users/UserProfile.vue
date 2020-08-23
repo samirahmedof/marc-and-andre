@@ -101,55 +101,15 @@
             </table>
             <div class="changePassBtn text-center">
               <button class="btn btn-pr">Save</button>
-              <!-- <button class="btn btn-pr" @click="changePassword=true">Change password</button> -->
             </div>
           </div>
-          <!-- <div class="changePassword" v-else key="pass">
-            <div class="restoreForm">
-              <form @submit.prevent="submitPassword">
-                <div class="form-group">
-                  <label>Email address</label>
-                  <input type="text" class="form-control" v-model="restore.email" />
-                  <small class="form-text formAlert" v-if="$v.restore.email.$invalid&&showAlerts">
-                    <span v-if="!$v.restore.email.required">This field is required</span>
-                    <span v-else>Invalid email</span>
-                  </small>
-                </div>
-                <div class="form-group">
-                  <label>New password</label>
-                  <input type="password" class="form-control" v-model="restore.pass1" />
-                  <small class="form-text formAlert" v-if="$v.restore.pass1.$invalid&&showAlerts">
-                    <span v-if="!$v.restore.pass1.required">This field is required</span>
-                    <span v-else>Invalid password</span>
-                  </small>
-                </div>
-                <div class="form-group">
-                  <label>Confirm password</label>
-                  <input type="password" class="form-control" v-model="restore.pass2" />
-                  <small class="form-text formAlert" v-if="$v.restore.pass2.$invalid&&showAlerts">
-                    <span v-if="!$v.restore.pass2.required">This field is required</span>
-                    <span v-else>Invalid password</span>
-                  </small>
-                </div>
-
-                <div class="form-group btns d-flex mt-4">
-                  <button type="submit" class="btn btn-pr m-auto">Submit</button>
-                  <button
-                    type="button"
-                    class="btn btn-pr m-auto"
-                    @click="changePassword=false"
-                  >Go to profile</button>
-                </div>
-              </form>
-            </div>
-          </div> -->
+        
         </transition>
       </div>
     </div>
   </div>
 </template>
 <script>
-// import { required, email, minLength, sameAs } from "vuelidate/lib/validators";
 import Shipping from "./Shipping";
 export default {
   data() {
@@ -242,32 +202,7 @@ export default {
       currentUser: this.$route.params.id,
     };
   },
-  // validations: {
-  //   restore: {
-  //     email: {
-  //       required,
-  //       email,
-  //     },
-  //     pass1: {
-  //       required,
-  //       minLength: minLength(3),
-  //     },
-  //     pass2: {
-  //       required,
-  //       minLength: minLength(3),
-  //       sameAs: sameAs("pass1"),
-  //     },
-  //   },
-  // },
-  // methods: {
-  //   submitPassword() {
-  //     if (this.$v.$invalid) {
-  //       this.showAlerts = true;
-  //     } else {
-  //       this.changePassword = false;
-  //     }
-  //   },
-  // },
+ 
   components: {
     Shipping,
   },

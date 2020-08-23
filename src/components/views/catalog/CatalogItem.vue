@@ -17,45 +17,66 @@
           </div>
         </div>
         <div class="tableArea">
-          <table class="table table-bordered">
+          <table class="table table-bordered" v-if="item.type=='one'">
             <thead>
               <tr>
                 <th>Size</th>
-                <th>36</th>
-                <th>38</th>
-                <th>40</th>
-                <th>42</th>
-                <th>44</th>
-                <th>46</th>
+                <th v-for="(size,index) in item.table.sizes" :key="index">{{size}}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="(letter,index) in item.table.letter" :key="index">
+                <td>{{letter}}</td>
+                <td v-for="(size,index) in item.table.sizes" :key="index">
+                  <span v-if="hasOnePieceSize(size,letter)">
+                    <input type="text" class="form-control" />
+                  </span>
+                  <span v-else>
+                    <i class="fas fa-minus"></i>
+                  </span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered" v-else-if="item.type=='top'">
+            <thead>
+              <tr>
+                <th>Size</th>
+                <th v-for="(size,index) in item.table.sizes" :key="index">{{size}}</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>A</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td v-for="(size,index) in item.table.sizes" :key="index">
+                  <span v-if="hasSize(size)">
+                    <input type="text" class="form-control" />
+                  </span>
+                  <span v-else>
+                    <i class="fas fa-minus"></i>
+                  </span>
+                </td>
               </tr>
+            </tbody>
+          </table>
+          <table class="table table-bordered" v-else>
+            <thead>
               <tr>
-                <td>B</td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th>Size</th>
+                <th v-for="(size,index) in item.table.sizes" :key="index">{{size}}</th>
               </tr>
+            </thead>
+            <tbody>
               <tr>
-                <td>C</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td v-for="(size,index) in item.table.sizes" :key="index">
+                  <span v-if="hasSize(size)">
+                    <input type="text" class="form-control" />
+                  </span>
+                  <span v-else>
+                    <i class="fas fa-minus"></i>
+                  </span>
+                </td>
               </tr>
             </tbody>
           </table>
@@ -75,5 +96,23 @@ export default {
       return `catalog/${this.index + 1}`;
     },
   },
+  methods: {
+    hasSize(currentSize) {
+      if (this.item.table.stock.indexOf(currentSize) != -1) {
+        return true;
+      } else {
+        return false;
+      }
+    },
+    hasOnePieceSize(currentSize, currentLetter) {
+      var hasInTable = this.item.table.stock.filter((x) => {
+        if (x.size == currentSize && x.letter == currentLetter) {
+          return true;
+        }
+      });
+      return hasInTable.length;
+    },
+  },
+ 
 };
 </script>

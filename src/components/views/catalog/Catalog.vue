@@ -59,7 +59,7 @@
                     <td>-</td>
                   </tr>
                   <tr>
-                    <td>A</td>
+                    <td>C</td>
                     <td>9</td>
                     <td></td>
                     <td>40</td>
@@ -113,6 +113,9 @@
                   </tr>
                 </tbody>
               </table>
+              <div class="btnRow text-center">
+                <button class="btn btn-pr">Save</button>
+              </div>
             </div>
           </div>
         </div>
@@ -136,6 +139,7 @@ export default {
       currentPage: 1,
       showedTableData: [],
       tableData: [],
+      totalTableData: null,
     };
   },
   methods: {
@@ -156,6 +160,7 @@ export default {
       let data = [
         {
           id: "1",
+          type: "one",
           name: "Test",
           vendor: "L2001",
           img: "https://via.placeholder.com/150",
@@ -164,9 +169,28 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          table: {
+            sizes: ["36", "38", "40", "42", "44", "46"],
+            letter: ["A", "C"],
+            stock: [
+              {
+                size: "36",
+                letter: "C",
+              },
+              {
+                size: "42",
+                letter: "A",
+              },
+              {
+                size: "44",
+                letter: "A",
+              },
+            ],
+          },
         },
         {
           id: "2",
+          type: "top",
           name: "Test",
           vendor: "L2001",
           img: "https://via.placeholder.com/3000x1500",
@@ -175,9 +199,14 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          table: {
+            sizes: ["36", "38", "40", "42", "44", "46"],
+            stock: ["36", "38", "40"],
+          },
         },
         {
           id: "3",
+          type: "bottom",
           name: "Test",
           vendor: "L2001",
           img: "https://via.placeholder.com/140x200",
@@ -186,10 +215,15 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          table: {
+            sizes: ["70", "75", "80", "85", "90", "95"],
+            stock: ["70", "75", "85"],
+          },
         },
         {
           id: "4",
           name: "Test",
+          type: "top",
           vendor: "L2001",
           img: "https://via.placeholder.com/150",
           description:
@@ -197,10 +231,15 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          table: {
+            sizes: ["36", "38", "40", "42", "44", "46"],
+            stock: ["42", "44", "46"],
+          },
         },
         {
           id: "5",
           name: "Test",
+          type: "bottom",
           vendor: "L2001",
           img: "https://via.placeholder.com/150",
           description:
@@ -208,10 +247,15 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          table: {
+            sizes: ["70", "75", "80", "85", "90", "95"],
+            stock: ["70", "90"],
+          },
         },
         {
           id: "6",
           name: "Test",
+          type: "one",
           vendor: "L2001",
           img: "https://via.placeholder.com/150",
           description:
@@ -219,10 +263,29 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
+          table: {
+            sizes: ["36", "38", "40", "42", "44", "46"],
+            letter: ["A", "B", "D"],
+            stock: [
+              {
+                size: "36",
+                letter: "D",
+              },
+              {
+                size: "42",
+                letter: "A",
+              },
+              {
+                size: "44",
+                letter: "B",
+              },
+            ],
+          },
         },
         {
           id: "7",
           name: "Test",
+          type: "one",
           vendor: "L2001",
           img: "https://via.placeholder.com/150",
           description:
@@ -230,39 +293,24 @@ export default {
           recommended: "11",
           wholesale: "10",
           retail: "12",
-        },
-        {
-          id: "8",
-          name: "Test",
-          vendor: "L2001",
-          img: "https://via.placeholder.com/150",
-          description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-          recommended: "11",
-          wholesale: "10",
-          retail: "12",
-        },
-        {
-          id: "9",
-          name: "Test",
-          vendor: "L2001",
-          img: "https://via.placeholder.com/150",
-          description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-          recommended: "11",
-          wholesale: "10",
-          retail: "12",
-        },
-        {
-          id: "10",
-          name: "Test",
-          vendor: "L2001",
-          img: "https://via.placeholder.com/150",
-          description:
-            "Lorem ipsum dolor sit amet consectetur adipisicing elit",
-          recommended: "11",
-          wholesale: "10",
-          retail: "12",
+          table: {
+            sizes: ["36", "38", "40", "42", "44", "46"],
+            letter: ["A", "B"],
+            stock: [
+              {
+                size: "38",
+                letter: "C",
+              },
+              {
+                size: "42",
+                letter: "C",
+              },
+              {
+                size: "46",
+                letter: "A",
+              },
+            ],
+          },
         },
       ];
       return data;
@@ -283,6 +331,15 @@ export default {
   created() {
     this.paginate();
     this.tableData = this.mainData;
+
+    var totalSizes = [];
+    for (let i = 0; i < this.mainData.length; i++) {
+      if (this.mainData[i].type == "one") {
+        totalSizes = totalSizes.concat(this.mainData[i].table.letter);
+      }
+    }
+    totalSizes = [...new Set(totalSizes)];
+    this.totalTableData = totalSizes.sort();
   },
   components: {
     Pagination,

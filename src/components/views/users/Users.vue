@@ -19,6 +19,7 @@
                         :thead="thead"
                         :index="index"
                         :filteredIndex="filteredIndex"
+                        :searchedIndex="searchedIndex"
                         @filtered="filteredCol($event)"
                         @searched="searchedCol($event)"
                       />
@@ -171,8 +172,9 @@ export default {
       currentPage: 1,
       showedTableData: [],
       tableData: [],
-      date1: "",
-      date2: "",
+      searchedText: null,
+      searchedHeading: null,
+      searchedIndex: null,
     };
   },
   methods: {
@@ -212,11 +214,9 @@ export default {
       }
     },
     searchedCol(e) {
-      if (e.index == 0) {
-        this.date1 = e.value;
-      } else if (e.index == 13) {
-        this.date2 = e.value;
-      }
+      this.searchedIndex = e.index;
+      this.searchedHeading = this.tableHead[e.index].obj;
+      this.searchedText = e.value;
     },
   },
   computed: {
@@ -367,27 +367,10 @@ export default {
       this.currentPage = 1;
       this.paginate();
     },
-    date1(val) {
+    searchedText(val) {
       this.tableData = this.mainData;
       this.tableData = this.tableData.filter((x) => {
-        if (
-          x.regDate.includes(this.date1) &&
-          x.lastChange.includes(this.date2)
-        ) {
-          return true;
-        }
-      });
-      this.paginate();
-    },
-    date2(val) {
-      this.tableData = this.mainData;
-      this.tableData = this.tableData.filter((x) => {
-        if (
-          x.regDate.includes(this.date1) &&
-          x.lastChange.includes(this.date2)
-        ) {
-          return true;
-        }
+        return x[this.searchedHeading].includes(val);
       });
       this.paginate();
     },

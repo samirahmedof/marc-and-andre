@@ -23,6 +23,9 @@
                     color: white;
                 }
             }
+            &.active {
+                cursor: pointer;
+            }
         }
         .userStatus {
             width: max-content;

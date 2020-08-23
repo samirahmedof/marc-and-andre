@@ -13,6 +13,15 @@
                 td {
                     text-align: center;
                 }
+                &.inProgress {
+                    cursor: pointer;
+                    td {
+                        &:last-of-type {
+                            background: $yellow;
+                            color: white;
+                        }
+                    }
+                }
             }
         }
     }

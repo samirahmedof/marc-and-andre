@@ -4,7 +4,7 @@
     <td>{{item.date}}</td>
     <td>{{item.status}}</td>
   </tr>
-  <tr v-else>
+  <tr class="inProgress" v-else @click="$router.push('/order-details')">
     <td>{{index+1}}</td>
     <td>{{item.date}}</td>
     <td>{{item.status}}</td>

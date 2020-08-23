@@ -205,7 +205,8 @@ table tr td i {
   padding: 5px 10px;
 }
 
-.productCarousel .mainImage img {
+.productCarousel .mainImage img,
+.productCarousel .mainImage video {
   max-width: 100%;
   max-height: 290px;
 }
@@ -229,7 +230,7 @@ table tr td i {
   height: 100px;
 }
 
-.productCarousel .imgContainer img {
+.productCarousel .imgContainer img, .productCarousel .imgContainer video {
   max-width: 100%;
   max-height: 100px;
 }
@@ -530,6 +531,10 @@ footer .footerMenu ul li a {
   color: white;
 }
 
+.userList table tr.active {
+  cursor: pointer;
+}
+
 .userList table .userStatus {
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -620,11 +625,22 @@ footer .footerMenu ul li a {
 .catalogPage .catalogCard {
   -webkit-box-shadow: 1px 1px 5px 0px #e0e0e0;
           box-shadow: 1px 1px 5px 0px #e0e0e0;
-  padding: 12px;
+  padding: 12px 12px 33px;
+  height: 100%;
+  position: relative;
 }
 
 .catalogPage .catalogCard .imageContainer {
-  text-align: center;
+  height: 200px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .catalogPage .catalogCard .imageContainer img {
@@ -654,11 +670,30 @@ footer .footerMenu ul li a {
   margin-bottom: 5px;
 }
 
+.catalogPage .catalogCard .cardBody .tableArea tbody tr {
+  height: 33px;
+}
+
 .catalogPage .catalogCard .cardBody .tableArea th,
 .catalogPage .catalogCard .cardBody .tableArea td {
   font-size: 10px;
   padding: 5px;
   text-align: center;
+}
+
+.catalogPage .catalogCard .cardBody .tableArea th i,
+.catalogPage .catalogCard .cardBody .tableArea td i {
+  font-size: 10px;
+}
+
+.catalogPage .catalogCard .cardBody .tableArea th input,
+.catalogPage .catalogCard .cardBody .tableArea td input {
+  padding: 0;
+  width: 30px;
+  height: 25px;
+  font-size: 10px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .catalogPage .catalogCard .cardBody .price {
@@ -669,6 +704,13 @@ footer .footerMenu ul li a {
   font-size: 13px;
   font-weight: 500;
   color: #c3a471;
+}
+
+.catalogPage .catalogCard .btnRow {
+  position: absolute;
+  bottom: 11px;
+  width: 100%;
+  left: 0;
 }
 
 .productDetail .productContent {
@@ -695,7 +737,8 @@ footer .footerMenu ul li a {
   color: #747474;
 }
 
-.productDetail .productTable table th, .productDetail .productTable table td {
+.productDetail .productTable table th,
+.productDetail .productTable table td {
   text-align: center;
   padding: 5px;
 }
@@ -715,6 +758,15 @@ footer .footerMenu ul li a {
 
 .ordersPage table tbody tr td {
   text-align: center;
+}
+
+.ordersPage table tbody tr.inProgress {
+  cursor: pointer;
+}
+
+.ordersPage table tbody tr.inProgress td:last-of-type {
+  background: #deba19;
+  color: white;
 }
 
 #orderModal .buttons .btn {
