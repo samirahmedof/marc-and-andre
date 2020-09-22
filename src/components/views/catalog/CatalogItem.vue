@@ -25,16 +25,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(letter,index) in item.table.letter" :key="index">
+              <tr v-for="(letter,index2) in item.table.letter" :key="index2">
                 <td>{{letter}}</td>
-                <td v-for="(size,index) in item.table.sizes" :key="index">
-                  <span v-if="hasOnePieceSize(size,letter)">
-                    <input type="text" class="form-control" />
-                  </span>
-                  <span v-else>
-                    <i class="fas fa-minus"></i>
-                  </span>
-                </td>
+                <OneTable
+                  v-for="(size,index) in item.table.sizes"
+                  :key="index"
+                  :index="index"
+                  :letter="returnLetter(letter)"
+                  :hasSize="hasOnePieceSize(size,letter)"
+                  :tableSizes="mainTableSizes.one"
+                  @countChanged="oneTableChanged($event)"
+                />
               </tr>
             </tbody>
           </table>
@@ -48,14 +49,15 @@
             <tbody>
               <tr>
                 <td></td>
-                <td v-for="(size,index) in item.table.sizes" :key="index">
-                  <span v-if="hasSize(size)">
-                    <input type="text" class="form-control" />
-                  </span>
-                  <span v-else>
-                    <i class="fas fa-minus"></i>
-                  </span>
-                </td>
+                <SingleTable
+                  v-for="(size,index) in item.table.sizes"
+                  :key="index"
+                  :index="index"
+                  :type="'top'"
+                  :hasSize="hasSize(size)"
+                  :tableSizes="mainTableSizes.top"
+                  @countChanged="topCountChanged($event)"
+                />
               </tr>
             </tbody>
           </table>
@@ -69,14 +71,15 @@
             <tbody>
               <tr>
                 <td></td>
-                <td v-for="(size,index) in item.table.sizes" :key="index">
-                  <span v-if="hasSize(size)">
-                    <input type="text" class="form-control" />
-                  </span>
-                  <span v-else>
-                    <i class="fas fa-minus"></i>
-                  </span>
-                </td>
+                <SingleTable
+                  v-for="(size,index) in item.table.sizes"
+                  :key="index"
+                  :index="index"
+                  :type="'bottom'"
+                  :tableSizes="mainTableSizes.bottom"
+                  @countChanged="bottomCountChanged($event)"
+                  :hasSize="hasSize(size)"
+                />
               </tr>
             </tbody>
           </table>
@@ -89,8 +92,11 @@
   </div>
 </template>
 <script>
+import OneTable from "./OneTable";
+import SingleTable from "./SingleTable";
+
 export default {
-  props: ["item", "index"],
+  props: ["item", "index", "mainTableSizes"],
   computed: {
     moreLink() {
       return `catalog/${this.index + 1}`;
@@ -112,7 +118,25 @@ export default {
       });
       return hasInTable.length;
     },
+    topCountChanged(e) {
+      e.index = "s" + this.item.table.sizes[e.index];
+      this.$emit("topCount", e);
+    },
+    bottomCountChanged(e) {
+      e.index = "s" + this.item.table.sizes[e.index];
+      this.$emit("bottomCount", e);
+    },
+    oneTableChanged(e) {
+      e.index = "s" + this.item.table.sizes[e.index];
+      this.$emit("oneTableCount", e);
+    },
+    returnLetter(letter) {
+      return letter;
+    },
   },
- 
+  components: {
+    OneTable,
+    SingleTable,
+  },
 };
 </script>

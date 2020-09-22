@@ -20,21 +20,21 @@ Vue.use(VueRouter);
 
 export const router = new VueRouter({
     routes: [
-        { path: '/users', component: Users },
-        { path: '/users/:id', component: UserProfile },
-        { path: '/login', component: Login },
-        { path: '/restore', component: Restore },
-        { path: '/profile', component: Profile },
-        { path: '/quick-registration', component: QuickRegistration },
-        { path: '/exhibition', component: Exhibition },
-        { path: '/catalog', component: Catalog },
-        { path: '/catalog/:id', component: Card },
-        { path: '/orders', component: Orders },
-        { path: '/orders/:id', component: VisualCatalog },
-        { path: '/shipping-and-payment', component: ShippingAndPayment },
-        { path: '/about', component: About },
-        { path: '/order-details', component: OrderDetails },
-        { path: '*', redirect: '/orders' }
+        { path: '/users', component: Users, name: 'users' },
+        { path: '/users/:id', component: UserProfile, name: 'user' },
+        { path: '/login', component: Login, name: 'login' },
+        { path: '/restore', component: Restore, name: 'restore' },
+        { path: '/profile', component: Profile, name: 'profile' },
+        { path: '/quick-registration', component: QuickRegistration, name: 'quick-registration' },
+        { path: '/exhibition', component: Exhibition, name: 'exhibition' },
+        { path: '/catalog', component: Catalog, name: 'catalog' },
+        { path: '/catalog/:id', component: Card, name: 'catalog-item' },
+        { path: '/orders', component: Orders, name: 'orders' },
+        { path: '/orders/:id', component: VisualCatalog, name: 'order' },
+        { path: '/shipping-and-payment', component: ShippingAndPayment, name: 's-p' },
+        { path: '/about', component: About, name: 'about' },
+        { path: '/order-details', component: OrderDetails, name: 'order-details' },
+        { path: '*', redirect: '/profile' }
     ],
     mode: 'history'
 })

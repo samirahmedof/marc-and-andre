@@ -81,6 +81,9 @@
                   <span v-if="!$v.reg.email.required">This field is required</span>
                   <span v-else>Invalid email</span>
                 </small>
+                <small class="form-text formAlert" v-if="existsEmailAlert">
+                  <span>This e-mail address already exists</span>
+                </small>
               </div>
               <div class="form-group">
                 <label>Password</label>
@@ -99,20 +102,25 @@
                 </small>
               </div>
               <div class="form-group">
-                <label>Organisation</label>
+                <label>Company</label>
                 <input type="text" class="form-control" v-model="reg.org" />
               </div>
               <div class="form-check form-group">
-                <input type="checkbox" class="form-check-input" id="tnCheck" v-model="reg.hasTIN" />
-                <label class="form-check-label" for="tnCheck">I have tax number (TIN)</label>
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="tnCheck"
+                  v-model="reg.hasNotTIN"
+                />
+                <label class="form-check-label" for="tnCheck">I have not number</label>
               </div>
               <transition
                 enter-active-class="animate__animated animate__fadeInDown animate__faster"
                 leave-active-class="animate__animated animate__fadeOutUp animate__faster"
                 mode="out-in"
               >
-                <div class="form-group" v-if="reg.hasTIN">
-                  <label>TIN</label>
+                <div class="form-group" v-if="!reg.hasNotTIN">
+                  <label>Vat Number</label>
                   <input type="text" class="form-control" v-model="reg.tin" />
                 </div>
               </transition>
@@ -132,19 +140,23 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <label>Full name of the contact person</label>
-                <input type="text" class="form-control" v-model="reg.fullname" />
+                <label>Name</label>
+                <div class="input-group">
+                  <select class="form-control gender" v-model="reg.gender">
+                    <option disabled selected value="0">Select</option>
+                    <option value="1">Mr.</option>
+                    <option value="2">Mrs.</option>
+                  </select>
+                  <input type="text" class="form-control" style="width: 60%" v-model="reg.name" />
+                </div>
               </div>
               <div class="form-group">
-                <label>Phone</label>
-                <div class="input-group">
-                  <input type="text" class="form-control" v-model="region" />
-                  <input type="text" class="form-control" style="width: 60%" v-model="reg.phone" />
-                </div>
-                <small class="form-text formAlert" v-if="$v.reg.phone.$invalid&&showAlerts">
-                  <span v-if="!$v.reg.phone.required">This field is required</span>
-                  <span v-else>Invalid phone</span>
-                </small>
+                <label>Surname</label>
+                <input type="text" class="form-control" v-model="reg.surname" />
+              </div>
+              <div class="form-group">
+                <label>Patronymic</label>
+                <input type="text" class="form-control" v-model="reg.patronymic" />
               </div>
               <div class="form-group">
                 <label>Country</label>
@@ -161,43 +173,24 @@
               </div>
               <div class="form-group">
                 <label>City</label>
-                <select class="form-control" v-model="reg.city">
-                  <option disabled selected>Select</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                </select>
+                <input type="text" class="form-control" v-model="reg.city" />
                 <small class="form-text formAlert" v-if="$v.reg.city.$invalid&&showAlerts">
                   <span v-if="!$v.reg.city.required">This field is required</span>
                   <span v-else>Invalid city</span>
                 </small>
               </div>
               <div class="form-group">
-                <label>Delivery address</label>
-                <input type="text" class="form-control mb-2" v-model="reg.delivery" />
-
-                <transition-group
-                  enter-active-class="animate__animated animate__fadeInDown animate__faster"
-                  leave-active-class="animate__animated animate__fadeOutDown animate__faster"
-                  mode="out-in"
-                >
-                  <div class="input-group mb-2" v-for="input in addressInputs" :key="input.id">
-                    <input type="text" class="form-control" />
-                    <div class="input-group-append">
-                      <span class="input-group-text" @click="removeInput(input.id)">
-                        <i class="fas fa-times"></i>
-                      </span>
-                    </div>
-                  </div>
-                </transition-group>
-                <small class="form-text formAlert" v-if="$v.reg.delivery.$invalid&&showAlerts">
-                  <span v-if="!$v.reg.delivery.required">This field is required</span>
-                  <span v-else>Invalid delivery</span>
-                </small>
-                <div class="addNew">
-                  <button class="btn btn-pr" @click.prevent="addNewInput">+Add new</button>
+                <label>Phone</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" v-model="region" />
+                  <input type="text" class="form-control" style="width: 60%" v-model="reg.phone" />
                 </div>
+                <small class="form-text formAlert" v-if="$v.reg.phone.$invalid&&showAlerts">
+                  <span v-if="!$v.reg.phone.required">This field is required</span>
+                  <span v-else>Invalid phone</span>
+                </small>
               </div>
+
               <div class="form-check form-group">
                 <input
                   type="checkbox"
@@ -257,7 +250,6 @@
               type="submit"
               class="btn btn-pr mr-auto"
               :disabled="$v.forgotPasswordEmail.$invalid"
-              @click="sendNewPass"
             >Send new</button>
             <button
               type="button"
@@ -269,12 +261,11 @@
             <p>There is no registration on the site for this e-mail. Want to register?</p>
             <div class="btnRow d-flex justify-content-center">
               <button type="button" class="btn btn-pr" @click.prevent="goToRegistration">Yes</button>
-              <button
-                type="button"
-                class="btn btn-pr"
-                @click.prevent="incorrectEmailForForgotPass=false"
-              >No</button>
+              <button type="button" class="btn btn-pr" @click.prevent="backToLogin">No</button>
             </div>
+          </div>
+          <div class="form-group incorrectEmail mt-4" v-if="passwordSended">
+            <p>Password sended</p>
           </div>
         </form>
       </div>
@@ -293,6 +284,7 @@ const isPhone = (value) => /^\+?[0-9]+$/.test(value);
 export default {
   data() {
     return {
+      passwordSended: false,
       correctEmail: true,
       showForm: true,
       showLoginForm: true,
@@ -311,11 +303,14 @@ export default {
         pass1: null,
         pass2: null,
         org: null,
-        hasTIN: false,
+        hasNotTIN: false,
         tin: null,
         address: null,
         activeAddress: null,
-        fullname: null,
+        gender: "0",
+        name: null,
+        surname: null,
+        patronymic: null,
         phone: null,
         country: null,
         city: null,
@@ -323,6 +318,7 @@ export default {
         acceptRules: false,
       },
       forgotPasswordEmail: null,
+      existsEmailAlert: false,
     };
   },
   validations: {
@@ -354,9 +350,6 @@ export default {
       city: {
         required,
       },
-      delivery: {
-        required,
-      },
     },
     login: {
       email: {
@@ -374,19 +367,51 @@ export default {
     },
   },
   methods: {
+    hasThisUser(email, pass) {
+      var users = this.$store.getters.getUsers;
+      if (pass) {
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].email == email && users[i].pass == pass) {
+            return users[i];
+          }
+        }
+      } else {
+        for (let i = 0; i < users.length; i++) {
+          if (users[i].email == email) {
+            return users[i];
+          }
+        }
+      }
+
+      return null;
+    },
     checkUser() {
       this.invalidLogin = false;
       this.correctEmail = true;
       if (this.$v.login.$invalid) {
         this.invalidLogin = true;
       } else {
-        this.correctEmail = false;
-        this.$store.commit("changeLogged");
-        this.$router.push("/");
+        var activeUser = this.hasThisUser(this.login.email, this.login.pass);
+        if (activeUser) {
+          this.correctEmail = false;
+          this.$store.commit("changeLogged", activeUser);
+          if (activeUser.status == "user") {
+            this.$router.push("/orders");
+          } else {
+            this.$router.push("/users");
+          }
+        } else {
+          this.correctEmail = false;
+        }
       }
     },
     checkUserForRestore() {
-      this.incorrectEmailForForgotPass = true;
+      var activeUser = this.hasThisUser(this.forgotPasswordEmail);
+      if (!activeUser) {
+        this.incorrectEmailForForgotPass = true;
+      } else {
+        this.passwordSended = true;
+      }
     },
     addNewInput() {
       if (this.addressInputs.length < 4) {
@@ -423,12 +448,21 @@ export default {
       });
     },
     checkRegistration() {
-      if (this.$v.reg.$invalid) {
-        this.showAlerts = true;
-      } else {
-        this.showLoginForm = true;
-        this.showForm = false;
-      }
+      // this.existsEmailAlert = false;
+
+      // if (this.$v.reg.$invalid) {
+      //   this.showAlerts = true;
+      // } else {
+      //   var users = this.$store.getters.getUsers;
+      //   for (let i = 0; i < users.length; i++) {
+      //     if (users[i].email == this.reg.email) {
+      //       this.existsEmailAlert = true;
+      //       return;
+      //     }
+      //   }
+      this.showLoginForm = true;
+      this.showForm = false;
+      // }
     },
     sendNewPass() {},
   },

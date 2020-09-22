@@ -14,6 +14,7 @@
           <p>{{visualCatalogData[pageId-1].text}}</p>
         </div>
         <div class="btnRow text-center">
+          <router-link class="btn btn-pr" to="/orders">Back to orders</router-link>
           <router-link class="btn btn-pr" to="/catalog">Continue order</router-link>
         </div>
       </div>

@@ -178,6 +178,15 @@ small.formAlert {
   opacity: 1;
 }
 
+.tableFilter select {
+  font-size: 12px;
+  padding: 2px 2px;
+}
+
+.emptyFilter {
+  width: 25px;
+}
+
 table tr {
   vertical-align: middle;
   -webkit-transition: all 0.5s;
@@ -191,7 +200,7 @@ table tr td i {
 }
 
 .productCarousel .mainImage {
-  height: 300px;
+  height: 390px;
   border: 1px solid #c3a471;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -228,9 +237,11 @@ table tr td i {
       -ms-flex-pack: center;
           justify-content: center;
   height: 100px;
+  margin: 5px 0;
 }
 
-.productCarousel .imgContainer img, .productCarousel .imgContainer video {
+.productCarousel .imgContainer img,
+.productCarousel .imgContainer video {
   max-width: 100%;
   max-height: 100px;
 }
@@ -245,11 +256,31 @@ table tr td i {
   opacity: 1;
 }
 
+.productCarousel .carouselNav {
+  position: relative;
+}
+
+.productCarousel .carouselNav a {
+  position: absolute;
+  width: 40px;
+  padding: 5px 0;
+}
+
+.productCarousel .carouselNav a:first-of-type {
+  top: 0px;
+}
+
+.productCarousel .carouselNav a:last-of-type {
+  bottom: 0px;
+}
+
 .productCarousel .navRow {
   overflow: hidden;
+  margin: 30px 0;
 }
 
 .productCarousel .navRow .slide {
+  max-height: 330px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
@@ -332,6 +363,7 @@ header .mainHeader .user .userPopup {
   visibility: hidden;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
+  z-index: 100;
 }
 
 header .mainHeader .user .userPopup ul {
@@ -503,6 +535,10 @@ footer .footerMenu ul li a {
   cursor: pointer;
 }
 
+.regForm select.gender {
+  width: 20%;
+}
+
 .userList table tr.isNotActive {
   background: #b90000;
   color: white;
@@ -535,6 +571,15 @@ footer .footerMenu ul li a {
   cursor: pointer;
 }
 
+.userList table tr.disabledRow {
+  cursor: initial;
+}
+
+.userList table tr th {
+  padding: 7px;
+  font-size: 13px;
+}
+
 .userList table .userStatus {
   width: -webkit-max-content;
   width: -moz-max-content;
@@ -543,6 +588,7 @@ footer .footerMenu ul li a {
 
 .userList table .userStatus select {
   font-size: 13px;
+  padding: 2px;
 }
 
 .userProfile .about {
@@ -557,14 +603,19 @@ footer .footerMenu ul li a {
   border-bottom: 1px solid #dac7a8;
 }
 
-.exhibitionPage table th.description .tableFilter,
-.orderDetailsPage table th.description .tableFilter {
-  width: 250px;
+.userProfile .about.disableProfile .form-control,
+.userProfile .about.disableProfile .input-group-text {
+  pointer-events: none;
+  background: #e4e6e7;
 }
 
-.exhibitionPage table th.color .tableFilter,
-.orderDetailsPage table th.color .tableFilter {
-  width: 250px;
+.userProfile .about .form-control.gender {
+  width: 65px;
+}
+
+.exhibitionPage table th.description .tableFilter,
+.orderDetailsPage table th.description .tableFilter {
+  width: 150px;
 }
 
 .exhibitionPage table .colorDiv,
@@ -609,9 +660,12 @@ footer .footerMenu ul li a {
 }
 
 .catalogPage .totalTable {
-  position: -webkit-sticky;
-  position: sticky;
-  top: 20px;
+  position: fixed;
+  top: 26%;
+  background: white;
+  -webkit-box-shadow: 1px 1px 5px 0px #e0e0e0;
+          box-shadow: 1px 1px 5px 0px #e0e0e0;
+  padding: 5px;
 }
 
 .catalogPage .totalTable th,
@@ -772,6 +826,44 @@ footer .footerMenu ul li a {
 #orderModal .buttons .btn {
   width: 100%;
   margin: 5px 0;
+}
+
+.orderDetailsPage .card-body th {
+  font-size: 13px;
+  padding: 5px;
+}
+
+.orderDetailsPage .card-body tbody td {
+  padding: 5px;
+}
+
+.orderDetailsPage .card-body tbody td:nth-of-type(1), .orderDetailsPage .card-body tbody td:nth-of-type(2), .orderDetailsPage .card-body tbody td:nth-of-type(3), .orderDetailsPage .card-body tbody td:nth-of-type(4), .orderDetailsPage .card-body tbody td:nth-of-type(5) {
+  cursor: pointer;
+}
+
+.orderDetailsPage .card-body tbody td input {
+  padding: 0;
+  width: 30px;
+  height: 25px;
+  font-size: 10px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.orderDetailsPage .card-body th.empty {
+  background: #c5c5c5;
+}
+
+.orderDetailsPage .aboutTable h5 {
+  color: #c3a471;
+  font-size: 18px;
+}
+
+#sendToMarketModal .confirmArea p {
+  color: #b90000;
+  font-size: 14px;
+  text-align: center;
+  line-height: 18px;
 }
 
 .visualCatalogPage .imageContainer img {

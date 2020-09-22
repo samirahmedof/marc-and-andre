@@ -1,6 +1,6 @@
 <template>
   <th :class="thead.obj">
-    <div class="tableFilter d-flex align-items-center">
+    <div class="tableFilter d-flex align-items-center" v-if="thead.hasFilter">
       <select class="form-control" v-model="selectedFilter">
         <option value="0" disabled>Select</option>
         <option value="1">asc</option>
@@ -20,6 +20,7 @@
         </div>
       </transition>
     </div>
+    <div class="emptyFilter" v-else></div>
   </th>
 </template>
 <script>
@@ -40,6 +41,19 @@ export default {
     openSearchInput() {
       this.search = "";
       this.showSearch = true;
+    },
+  },
+  computed: {
+    showTh() {
+      if (this.thead.obj != "edit") {
+        return true;
+      } else {
+        if (this.$store.getters.getUserStatus == "manager") {
+          return false;
+        } else {
+          return true;
+        }
+      }
     },
   },
   watch: {

@@ -3,8 +3,13 @@
         position: relative;
     }
     .totalTable {
-        position: sticky;
-        top: 20px;
+        // position: sticky;
+        // top: 20px;
+        position: fixed;
+        top: 26%;
+        background: white;
+        box-shadow: $shadow;
+        padding: 5px;
         th,
         td {
             text-align: center;

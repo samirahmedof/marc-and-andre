@@ -5,15 +5,17 @@
         <div class="row align-items-center">
           <div class="col-2">
             <div class="logo">
-              <img src="src/assets/img/logo.png" alt="logo" />
+              <router-link to="/orders">
+                <img src="src/assets/img/logo.png" alt="logo" />
+              </router-link>
             </div>
           </div>
           <transition
             enter-active-class="animate__animated animate__fadeInDown animate__faster"
-            leave-active-class="animate__animated animate__fadeOutUpanimate__faster"
+            leave-active-class="animate__animated animate__fadeOutUp animate__faster"
           >
-            <div class="offset-1 col-4" v-if="$store.getters.getIsLogged">
-              <div class="searching">
+            <div class="offset-1 col-4">
+              <div class="searching" v-if="!$store.getters.getHideSearch">
                 <div class="input-group">
                   <input
                     type="text"
@@ -32,12 +34,15 @@
           </transition>
           <transition
             enter-active-class="animate__animated animate__fadeInDown animate__faster"
-            leave-active-class="animate__animated animate__fadeOutUpanimate__faster"
+            leave-active-class="animate__animated animate__fadeOutUp animate__faster"
           >
             <div class="offset-1 col-4" v-if="$store.getters.getIsLogged">
               <div class="row">
                 <div class="col-6">
-                  <div class="cart text-center">
+                  <div
+                    class="cart text-center"
+                    v-if="$store.getters.getUserStatus=='user'&&!isOrderPage"
+                  >
                     <div class="icon">
                       <router-link to="/order-details">
                         <i class="fas fa-shopping-cart"></i>
@@ -72,9 +77,12 @@
     </div>
     <transition
       enter-active-class="animate__animated animate__fadeInDown animate__faster"
-      leave-active-class="animate__animated animate__fadeOutUpanimate__faster"
+      leave-active-class="animate__animated animate__fadeOutUp animate__faster"
     >
-      <div class="secHeader" v-if="$store.getters.getIsLogged">
+      <div
+        class="secHeader"
+        v-if="$store.getters.getIsLogged&&$store.getters.getUserStatus!='user'"
+      >
         <div class="container-fluid">
           <div class="row">
             <div class="col-12">
@@ -85,18 +93,6 @@
                 <li>
                   <router-link to="/quick-registration">Quick Registration</router-link>
                 </li>
-                <li>
-                  <router-link to="/exhibition">Exhibition</router-link>
-                </li>
-                <li>
-                  <router-link to="/catalog">Catalog</router-link>
-                </li>
-                <li>
-                  <router-link to="/orders">Orders</router-link>
-                </li>
-                <!-- <li>
-                  <router-link to="/visual-catalog">VisualCatalog</router-link>
-                </li>-->
               </ul>
             </div>
           </div>
@@ -109,8 +105,13 @@
 export default {
   methods: {
     getLogout() {
-      this.$store.commit("changeLogged");
+      this.$store.commit("getLogout");
       this.$router.push("/login");
+    },
+  },
+  computed: {
+    isOrderPage() {
+      return this.$route.path == "/orders" || this.$route.path == "/profile";
     },
   },
 };

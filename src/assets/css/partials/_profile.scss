@@ -9,5 +9,15 @@
                 border-bottom: 1px solid #dac7a8;
             }
         }
+        &.disableProfile {
+            .form-control,
+            .input-group-text {
+                pointer-events: none;
+                background: #e4e6e7;
+            }
+        }
+        .form-control.gender {
+            width: 65px;
+        }
     }
 }

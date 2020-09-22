@@ -52,30 +52,78 @@
                   <tbody>
                     <tr>
                       <td>A</td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
                       <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
                       <td></td>
                     </tr>
                     <tr>
                       <td>B</td>
                       <td></td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
                       <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
                     </tr>
                     <tr>
                       <td>C</td>
                       <td></td>
                       <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
+                      <td>
+                        <span>
+                          <input type="text" class="form-control" />
+                        </span>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -112,27 +160,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/1500",
+              src: "https://via.placeholder.com/1000x1200",
             },
             {
               id: "i2",
               type: "img",
-              src: "https://via.placeholder.com/140x1500",
+              src: "https://via.placeholder.com/140x250",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300x140",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -149,28 +197,28 @@ export default {
           img: [
             {
               id: "i1",
-              type: "img",
-              src: "https://via.placeholder.com/1500",
-            },
-            {
-              id: "i2",
               type: "video",
               src: "src/assets/img/video.mp4",
             },
             {
+              id: "i2",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
+            },
+            {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -188,27 +236,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/1500",
+              src: "https://via.placeholder.com/1000x1200",
             },
             {
               id: "i2",
-              type: "video",
-              src: "src/assets/img/video.mp4",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -225,28 +273,28 @@ export default {
           img: [
             {
               id: "i1",
-              type: "img",
-              src: "https://via.placeholder.com/1500",
-            },
-            {
-              id: "i2",
               type: "video",
               src: "src/assets/img/video.mp4",
             },
             {
+              id: "i2",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
+            },
+            {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -264,27 +312,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/1500",
+              src: "https://via.placeholder.com/1000x1200",
             },
             {
               id: "i2",
-              type: "video",
-              src: "src/assets/img/video.mp4",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -301,28 +349,28 @@ export default {
           img: [
             {
               id: "i1",
-              type: "img",
-              src: "https://via.placeholder.com/1500",
-            },
-            {
-              id: "i2",
               type: "video",
               src: "src/assets/img/video.mp4",
             },
             {
+              id: "i2",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
+            },
+            {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -340,27 +388,27 @@ export default {
             {
               id: "i1",
               type: "img",
-              src: "https://via.placeholder.com/1500",
+              src: "https://via.placeholder.com/1000x1200",
             },
             {
               id: "i2",
-              type: "video",
-              src: "src/assets/img/video.mp4",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
             },
             {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -377,28 +425,28 @@ export default {
           img: [
             {
               id: "i1",
-              type: "img",
-              src: "https://via.placeholder.com/1500",
-            },
-            {
-              id: "i2",
               type: "video",
               src: "src/assets/img/video.mp4",
             },
             {
+              id: "i2",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
+            },
+            {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -415,28 +463,28 @@ export default {
           img: [
             {
               id: "i1",
-              type: "img",
-              src: "https://via.placeholder.com/1500",
-            },
-            {
-              id: "i2",
               type: "video",
               src: "src/assets/img/video.mp4",
             },
             {
+              id: "i2",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
+            },
+            {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:
@@ -453,28 +501,28 @@ export default {
           img: [
             {
               id: "i1",
-              type: "img",
-              src: "https://via.placeholder.com/1500",
-            },
-            {
-              id: "i2",
               type: "video",
               src: "src/assets/img/video.mp4",
             },
             {
+              id: "i2",
+              type: "img",
+              src: "https://via.placeholder.com/140x250",
+            },
+            {
               id: "i3",
               type: "img",
-              src: "https://via.placeholder.com/1300",
+              src: "https://via.placeholder.com/200x240",
             },
             {
               id: "i4",
               type: "img",
-              src: "https://via.placeholder.com/1500x1200",
+              src: "https://via.placeholder.com/200x220",
             },
             {
               id: "i5",
               type: "img",
-              src: "https://via.placeholder.com/1500x1300",
+              src: "https://via.placeholder.com/250x330",
             },
           ],
           description:

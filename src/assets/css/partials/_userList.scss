@@ -26,11 +26,19 @@
             &.active {
                 cursor: pointer;
             }
+            &.disabledRow {
+                cursor: initial;
+            }
+            th {
+                padding: 7px;
+                font-size: 13px;
+            }
         }
         .userStatus {
             width: max-content;
             select {
                 font-size: 13px;
+                padding: 2px;
             }
         }
     }

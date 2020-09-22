@@ -1,20 +1,50 @@
 <template>
   <tr
-    :class="[{'isNotActive':user.status=='isNotActive'},{'archive':user.status=='archive'},{'active':user.status=='active'}]"
+    :class="[{'isNotActive':user.status=='isNotActive'},{'active':user.status=='active'}]"
     @click="goToOrders"
   >
     <td>{{user.regDate}}</td>
-    <td>{{user.fullname}}</td>
-    <td>{{user.company}}</td>
-    <td>{{user.tin}}</td>
+    <td @click.stop v-if="$store.getters.getUserStatus=='rop'" class="text-center">
+      {{user.fullname}}
+      <div class="editUser">
+        <router-link :to="userlink">
+          <i class="fas fa-edit"></i>
+        </router-link>
+      </div>
+    </td>
+    <td @click.stop v-else class="text-center">
+      {{user.fullname}}
+      <div class="viewUser">
+        <router-link :to="userlink">
+          <i class="fas fa-eye"></i>
+        </router-link>
+      </div>
+    </td>
+    <td @click.stop v-if="$store.getters.getUserStatus=='rop'" class="text-center">
+      {{user.company}}
+      <div class="editUser">
+        <router-link :to="userlink">
+          <i class="fas fa-edit"></i>
+        </router-link>
+      </div>
+    </td>
+    <td @click.stop v-else class="text-center">
+      {{user.company}}
+      <div class="viewUser text-center">
+        <router-link :to="userlink">
+          <i class="fas fa-eye"></i>
+        </router-link>
+      </div>
+    </td>
+    <!-- <td>{{user.tin}}</td> -->
     <td>{{user.phone}}</td>
     <td>{{user.email}}</td>
     <td>{{user.country}}</td>
     <td>{{user.city}}</td>
-    <td>{{user.zip}}</td>
-    <td>{{user.address}}</td>
-    <td>{{user.activeAddress}}</td>
-    <td>
+    <!-- <td>{{user.zip}}</td> -->
+    <!-- <td>{{user.address}}</td> -->
+    <!-- <td>{{user.activeAddress}}</td> -->
+    <td @click.stop v-if="$store.getters.getUserStatus=='rop'">
       <div class="userStatus text-center">
         <select class="form-control" v-model="status">
           <option value="active">Active</option>
@@ -24,17 +54,35 @@
         <button class="btn btn-pr btn-sm mt-1" @click.prevent="acceptStatus">OK</button>
       </div>
     </td>
+    <td v-else>{{user.status}}</td>
     <td>{{user.activeOrders}}</td>
     <td>{{user.lastChange}}</td>
-    <td>{{user.manager}}</td>
-    <td>{{user.activate}}</td>
-    <td>
+    <td @click.stop v-if="$store.getters.getUserStatus == 'rop'">
+      <div class="userStatus text-center">
+        <select class="form-control" v-model="manager">
+          <option value="1">manager 1</option>
+          <option value="2">manager 2</option>
+          <option value="3">manager 3</option>
+        </select>
+        <button class="btn btn-pr btn-sm mt-1">OK</button>
+      </div>
+    </td>
+    <td v-else>{{user.manager}}</td>
+    <!-- <td>{{user.activate}}</td> -->
+    <!-- <td @click.stop v-if="$store.getters.getUserStatus=='rop'">
       <div class="editUser text-center">
         <router-link :to="userlink">
           <i class="fas fa-edit"></i>
         </router-link>
       </div>
-    </td>
+    </td>-->
+    <!-- <td @click.stop v-else>
+      <div class="viewUser text-center">
+        <router-link :to="userlink">
+          <i class="fas fa-eye"></i>
+        </router-link>
+      </div>
+    </td>-->
     <td>{{user.type}}</td>
   </tr>
 </template>
@@ -44,6 +92,7 @@ export default {
   data() {
     return {
       status: this.user.status,
+      manager: "1",
     };
   },
   methods: {

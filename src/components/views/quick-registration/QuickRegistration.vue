@@ -41,12 +41,8 @@
             </div>
             <div class="form-group">
               <label>City</label>
-              <select class="form-control" v-model="reg.city">
-                <option disabled selected>Select</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-              </select>
+              <input type="text" class="form-control" v-model="reg.city" />
+
               <small class="form-text formAlert" v-if="$v.reg.city.$invalid&&showAlerts">
                 <span v-if="!$v.reg.city.required">This field is required</span>
                 <span v-else>Invalid city</span>
@@ -80,6 +76,15 @@
         <button class="btn btn-pr" @click="selectedBtn">Select3</button>
       </div>
     </b-modal>
+    <b-modal id="makeOrderModal" size="sm" hide-header hide-footer centered>
+      <div class="form-group">
+        <label>Would you make the order right now?</label>
+        <div class="buttonRow text-center">
+          <button class="btn btn-pr mt-2" @click="$bvModal.show('regModal')">Yes</button>
+          <router-link to="/users" class="btn btn-pr mt-2">No</router-link>
+        </div>
+      </div>
+    </b-modal>
   </div>
 </template>
 <script>
@@ -91,6 +96,7 @@ import {
   withParams,
 } from "vuelidate/lib/validators";
 const isPhone = (value) => /^\+?[0-9]+$/.test(value);
+const hasPlus = (value) => value.charAt(0) == "+";
 export default {
   data() {
     return {
@@ -101,7 +107,7 @@ export default {
         org: null,
         name: null,
         surname: null,
-        phone: null,
+        phone: "+",
         city: null,
       },
       forgotPasswordEmail: null,
@@ -117,6 +123,7 @@ export default {
         required,
         phoneValid: isPhone,
         minLength: minLength(8),
+        hasPlus,
       },
       city: {
         required,
@@ -137,7 +144,7 @@ export default {
       if (this.$v.$invalid) {
         this.showAlerts = true;
       } else {
-        this.$bvModal.show("regModal");
+        this.$bvModal.show("makeOrderModal");
       }
     },
     selectedBtn() {

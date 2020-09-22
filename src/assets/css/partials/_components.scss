@@ -101,6 +101,13 @@ small.formAlert {
             }
         }
     }
+    select {
+        font-size: 12px;
+        padding: 2px 2px;
+    }
+}
+.emptyFilter {
+    width: 25px;
 }
 table {
     tr {
@@ -117,7 +124,7 @@ table {
 }
 .productCarousel {
     .mainImage {
-        height: 300px;
+        height: 390px;
         border: 1px solid $color;
         display: flex;
         align-items: center;
@@ -140,7 +147,9 @@ table {
         align-items: center;
         justify-content: center;
         height: 100px;
-        img,video {
+        margin: 5px 0;
+        img,
+        video {
             max-width: 100%;
             max-height: 100px;
         }
@@ -153,9 +162,26 @@ table {
             opacity: 1;
         }
     }
+    .carouselNav {
+        position: relative;
+        a {
+            position: absolute;
+            width: 40px;
+            padding: 5px 0;
+            &:first-of-type {
+                top: 0px;
+            }
+
+            &:last-of-type {
+                bottom: 0px;
+            }
+        }
+    }
     .navRow {
         overflow: hidden;
+        margin: 30px 0;
         .slide {
+            max-height: 330px;
             transition: all 0.3s;
             & > .row {
                 flex-wrap: nowrap;
