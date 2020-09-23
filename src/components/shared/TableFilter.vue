@@ -1,6 +1,10 @@
 <template>
   <th :class="thead.obj">
-    <div class="tableFilter d-flex align-items-center" v-if="thead.hasFilter">
+    <div
+      class="tableFilter d-flex align-items-center"
+      v-if="thead.hasFilter"
+      :class="{'small-input':thead.obj=='type'}"
+    >
       <select class="form-control" v-model="selectedFilter">
         <option value="0" disabled>Select</option>
         <option value="1">asc</option>

@@ -183,6 +183,10 @@ small.formAlert {
   padding: 2px 2px;
 }
 
+.tableFilter.small-input {
+  width: 40px;
+}
+
 .emptyFilter {
   width: 25px;
 }

@@ -179,7 +179,7 @@ export default {
         // },
         {
           id: "18",
-          text: "Registration type",
+          text: "Type",
           hasSearch: false,
           hasFilter: true,
           obj: "type",
@@ -263,7 +263,7 @@ export default {
           manager: "test q",
           activate: "test q",
           edit: "test q",
-          type: "test q",
+          type: "q",
         },
         {
           id: "2",
@@ -284,7 +284,7 @@ export default {
           manager: "test b",
           activate: "test b",
           edit: "test b",
-          type: "test b",
+          type: "b",
         },
         {
           id: "3",
@@ -305,7 +305,7 @@ export default {
           manager: "test c",
           activate: "test s",
           edit: "test q",
-          type: "test t",
+          type: "t",
         },
         {
           id: "4",
@@ -326,7 +326,7 @@ export default {
           manager: "test q",
           activate: "test q",
           edit: "test q",
-          type: "test q",
+          type: "q",
         },
         {
           id: "5",
@@ -347,7 +347,7 @@ export default {
           manager: "test b",
           activate: "test b",
           edit: "test b",
-          type: "test b",
+          type: "b",
         },
         {
           id: "6",
@@ -368,7 +368,7 @@ export default {
           manager: "test c",
           activate: "test s",
           edit: "test q",
-          type: "test t",
+          type: "t",
         },
       ];
       return data;
