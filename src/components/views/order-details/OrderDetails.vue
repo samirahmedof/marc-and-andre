@@ -395,9 +395,10 @@ export default {
       this.$bvModal.hide("sendTableModal");
     },
     sendToMarket() {
-      this.acceptSendToMarket = false;
-      this.sendedToMarket = true;
-      this.$bvModal.hide("sendToMarketModal");
+      // this.acceptSendToMarket = false;
+      // this.sendedToMarket = true;
+      // this.$bvModal.hide("sendToMarketModal");
+      this.$router.push('/orders');
     },
     cancelSendToMarket() {
       this.acceptSendToMarket = false;
